@@ -52,6 +52,7 @@ function ViewCode() {
             setCodeResp(resp?.code?.resp);
             setLoading(false);
             setIsReady(true);
+            console.log(resp?.code?.resp)
         }
         if (resp?.error) {
             console.log("No Record Found")

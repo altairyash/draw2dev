@@ -39,7 +39,7 @@ export default function HeroButton({
       onClick={onclick}
       disabled={disabled}
     >
-      <a href={href || "#"} className="flex flex-row gap-x-2">{children}</a>
+     { href ? (<a href={href } className="flex flex-row gap-x-2">{children}</a>) : <span className="flex flex-row gap-x-2">{children}</span>}
     </button>
   );
 }
