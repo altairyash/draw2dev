@@ -3,8 +3,8 @@ import ImageUpload from './_components/ImageUpload'
 
 function Dashboard() {
     return (
-        <div className='lg:px-20 xl:px-40'>
-            <h2 className='font-bold text-3xl'>Convert Wireframe to Code</h2>
+        <div className='lg:px-20 xl:px-40 block'>
+            <h2 className='font-bold text-4xl text-white'>Convert Wireframe to Code</h2>
             <ImageUpload/>
         </div>
     )

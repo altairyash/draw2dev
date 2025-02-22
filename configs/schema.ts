@@ -6,7 +6,7 @@ export const usersTable = pgTable("users", {
   credits: integer().default(0),
 });
 
-export const Sketch2CodeTable = pgTable("sketch2code", {
+export const Draw2DevTable = pgTable("draw2dev", {
   id: integer().primaryKey().generatedAlwaysAsIdentity(),
   uid: varchar(),
   imageUrl: varchar(),

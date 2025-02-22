@@ -40,7 +40,7 @@ function ViewCode() {
         setCodeResp('');
         setLoading(true)
 
-        const result = await axios.get('/api/sketch2code?uid=' + uid)
+        const result = await axios.get('/api/draw2dev?uid=' + uid)
 
         const resp = result?.data;
         setRecord(result?.data)
@@ -98,7 +98,7 @@ function ViewCode() {
 
     const UpdateCodeToDb = async () => {
         console.log(record)
-        const result = await axios.put('/api/sketch2code', {
+        const result = await axios.put('/api/draw2dev', {
             uid: record?.uid,
             codeResp: { resp: codeResp }
         });

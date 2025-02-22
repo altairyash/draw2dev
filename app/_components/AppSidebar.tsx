@@ -48,37 +48,33 @@ export function AppSidebar() {
       <SidebarHeader>
         <div className="flex flex-col">
           <div className="p-4">
-            <Image
-              src={"./logo.svg"}
-              alt="logo"
-              width={100}
-              height={100}
-              className="w-full h-full"
-            />
-            <h2 className="text-sm text-gray-400 text-center absolute top-[8rem] left-20">Build Awesome</h2>
+            <span className="text-2xl font-bold text-slate-900 block">draw2<span className="text-[#7621ff]">dev</span></span>
+            <h2 className="text-sm text-gray-400 top-4 left-20 text-left">
+              Build Effortlessly
+            </h2>
           </div>
         </div>
       </SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
           <SidebarGroupContent>
-            <SidebarMenu className="">
+            <SidebarMenu>
               {items.map((item, index) => (
-                // <SidebarMenuItem key={item.title} className='p-2'>
-                //     <SidebarMenuButton asChild className=''>
                 <a
                   href={item.url}
                   key={index}
-                  className={`p-2 text-lg flex gap-2 items-center
-                                 hover:bg-gray-100 rounded-lg
-                                 ${path == item.url && "bg-gray-200"}
-                                 `}
+                  className={`p-4 m-3 text-lg flex gap-3 items-center rounded-xl transition-all 
+              hover:bg-gray-100 dark:hover:bg-gray-800 
+              ${
+                path === item.url
+                  ? "bg-gradient-to-r from-purple-500 to-blue-500 text-white shadow-lg shadow-purple-500/20 backdrop-blur-md"
+                  : ""
+              }
+            `}
                 >
-                  <item.icon className="h-5 w-5" />
+                  <item.icon className="h-5 w-5 text-current" />
                   <span>{item.title}</span>
                 </a>
-                //     </SidebarMenuButton>
-                // </SidebarMenuItem>
               ))}
             </SidebarMenu>
           </SidebarGroupContent>

@@ -21,6 +21,7 @@ import { useAuthContext } from '@/app/provider'
 import { useRouter } from 'next/navigation'
 import Constants from '@/data/Constants'
 import { toast } from 'sonner'
+import HeroButton from '@/components/customComponents/heroButton'
 function ImageUpload() {
 
     const [previewUrl, setPreviewUrl] = useState<string | null>(null)
@@ -49,7 +50,7 @@ function ImageUpload() {
         setLoading(true);
         //Save Image to Firebase
         const fileName = Date.now() + '.png';
-        const imageRef = ref(storage, "sketch2code/" + fileName);
+        const imageRef = ref(storage, "draw2dev/" + fileName);
         await uploadBytes(imageRef, file).then(resp => {
             console.log("Image Uploaded...")
         });
@@ -60,7 +61,7 @@ function ImageUpload() {
         const uid = uuid4();
         console.log(uid);
         // Save Info To Database
-        const result = await axios.post('/api/sketch2code', {
+        const result = await axios.post('/api/draw2dev', {
             uid: uid,
             description: description,
             imageUrl: imageUrl,
@@ -80,8 +81,7 @@ function ImageUpload() {
     return (
         <div className='mt-10'>
             <div className='grid grid-cols-1 md:grid-cols-2 gap-10'>
-                {!previewUrl ? <div className='p-7 border border-dashed rounded-md shadow-md
-                flex flex-col items-center justify-center
+                {!previewUrl ? <div className='p-7 border border-dashed rounded-2xl flex flex-col items-center justify-center shadow-2xl shadow-[#36212125]
                 '>
                     <CloudUpload className='h-10 w-10 text-primary' />
                     <h2 className='font-bold text-lg'>Upload Image</h2>
@@ -110,7 +110,7 @@ function ImageUpload() {
 
                     </div>
                 }
-                <div className='p-7 border shadow-md rounded-lg'>
+                <div className='p-7 border shadow-2xl shadow-[#36212125] rounded-2xl'>
 
                     <h2 className='font-bold text-lg'>Select AI Model</h2>
                     <Select onValueChange={(value) => setModel(value)}>
@@ -141,9 +141,9 @@ function ImageUpload() {
             </div>
 
             <div className='mt-10 flex items-center justify-center'>
-                <Button onClick={OnConverToCodeButtonClick} disabled={loading}>
+                <HeroButton className="flex flex-row !rounded-full" onclick={OnConverToCodeButtonClick} disabled={loading}>
                     {loading ? <Loader2Icon className=' animate-spin' /> : <WandSparkles />}
-                    Convert to Code</Button>
+                    Convert to Code</HeroButton>
             </div>
         </div>
     )

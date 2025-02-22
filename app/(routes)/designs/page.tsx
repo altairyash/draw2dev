@@ -15,7 +15,7 @@ function Designs() {
 
     const GetAllUserWireframe = async () => {
 
-        const result = await axios.get('/api/sketch2code?email='
+        const result = await axios.get('/api/draw2dev?email='
             + user?.email);
         console.log(result.data);
         setWireframeList(result.data);

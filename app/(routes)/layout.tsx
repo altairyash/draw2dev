@@ -1,18 +1,17 @@
-import React from 'react'
-import DashboardProvider from './provider';
-
+import React from "react";
+import DashboardProvider from "./provider";
+import ProtectedRoute from "@/components/protected-route";
 
 function DashboardLayout({
-    children,
+  children,
 }: Readonly<{
-    children: React.ReactNode;
+  children: React.ReactNode;
 }>) {
-
-    return (
-        <DashboardProvider>
-            {children}
-        </DashboardProvider>
-    )
+  return (
+    <ProtectedRoute>
+      <DashboardProvider>{children}</DashboardProvider>
+    </ProtectedRoute>
+  );
 }
 
-export default DashboardLayout
+export default DashboardLayout;

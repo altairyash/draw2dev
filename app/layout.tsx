@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Sketch2Code",
-  description: "Generated Code by Wireframes",
+  title: "Draw2Dev",
+  description: "Generate Code by Wireframes",
 };
 
 export default function RootLayout({
